@@ -123,6 +123,17 @@ linear-gradient(180deg,#081226 0%,#0b2353 45%,#08162d 100%)}
 .success h2{font-size:clamp(29px,5vw,43px)}
 .success p{margin-top:5px}
 @media(max-width:760px){.form-card{padding:22px 17px}.fields{gap:15px}.success{min-height:370px}}
+
+/* Welcome stage before the gift recipient form. No authentication is asserted. */
+#welcomePage[hidden],#formPage[hidden]{display:none!important}
+.welcome{display:flex;min-height:425px;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px 6px;animation:showup .4s ease both}
+.welcome-icon{display:grid;place-items:center;width:112px;height:112px;margin:28px 0 15px;border-radius:50%;border:4px solid #ffeea9;
+  background:radial-gradient(circle at 33% 22%,#6cffb4,#06a963 78%);
+  color:white;font-size:76px;font-weight:900;line-height:1;box-shadow:0 0 0 11px #48dd9517,0 10px 30px #031d2999,0 0 29px #5af1a14d}
+.welcome h2{font-size:clamp(31px,7vw,43px);margin:4px 0 12px;line-height:1.1;color:#fff1b5;text-shadow:0 2px 0 #92511d}
+.welcome p{font-size:clamp(15px,3.8vw,18px);line-height:1.55;max-width:390px;margin:0 0 16px;color:#e2f2ff}
+.welcome-next{width:min(100%,370px);margin-top:18px}
+@media(max-width:760px){.welcome{min-height:360px;padding:10px 4px}.welcome-icon{width:98px;height:98px;font-size:65px;margin:22px 0 16px}.welcome-next{min-height:58px}}
 </style>
 </head>
 <body>
@@ -144,7 +155,14 @@ linear-gradient(180deg,#081226 0%,#0b2353 45%,#08162d 100%)}
   <main class="main">
     <section class="card glass form-card" aria-labelledby="form-title">
       <div class="inner-border"></div>
-      <div id="formPage">
+      <div class="welcome" id="welcomePage" aria-labelledby="welcomeTitle">
+        <span class="success-ribbon">🎁 OMAD SHOU</span>
+        <div class="welcome-icon" aria-hidden="true">✓</div>
+        <h2 id="welcomeTitle">Xush kelibsiz!</h2>
+        <p>Sovg‘ani olish uchun ism-familiyangiz va yetkazib berish manzilingizni ko‘rsatish qoldi.</p>
+        <button type="button" class="submit welcome-next" id="continueBtn">DAVOM ETISH <span aria-hidden="true">➜</span></button>
+      </div>
+      <div id="formPage" hidden>
         <div class="form-top">
           <span class="form-kicker">🎁 SOVG‘ANI QABUL QILISH</span>
         </div>
@@ -183,6 +201,13 @@ linear-gradient(180deg,#081226 0%,#0b2353 45%,#08162d 100%)}
 const lights=document.getElementById('lights');
 for(let i=0;i<22;i++){const b=document.createElement('i');b.style.setProperty('--c',['#ffe271','#77ddff','#ff6f88','#d9fbff'][i%4]);b.style.setProperty('--r',((i%2?1:-1)*14)+'deg');b.style.setProperty('--d',(-i*.12)+'s');lights.appendChild(b)}
 for(let i=0;i<36;i++){const s=document.createElement('span');s.className='snow';s.textContent=i%4===0?'❄':'•';s.style.left=(i*17.7%100)+'%';s.style.setProperty('--size',(8+(i%6)*2)+'px');s.style.animationDuration=(8.5+(i%7)*1.7)+'s';s.style.animationDelay=(-i*.8)+'s';s.style.setProperty('--dx',((i%2?42:-40)+(i%5)*3)+'px');document.body.appendChild(s)}
+const welcomePage=document.getElementById('welcomePage');
+const formPage=document.getElementById('formPage');
+document.getElementById('continueBtn').addEventListener('click',()=>{
+  welcomePage.hidden=true;
+  formPage.hidden=false;
+  document.getElementById('fullName').focus({preventScroll:true});
+});
 const form=document.getElementById('giftForm');
 form.addEventListener('submit',e=>{
   e.preventDefault();
