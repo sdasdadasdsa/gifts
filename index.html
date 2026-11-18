@@ -110,6 +110,19 @@ linear-gradient(180deg,#081226 0%,#0b2353 45%,#08162d 100%)}
  .success{min-height:480px}
 }
 @media(max-width:430px){.form-card{padding:24px 17px}.page{padding:24px 12px}.fields{gap:13px}}
+
+/* Two-field layout on mobile and desktop */
+.page{max-width:580px}
+.form-card{padding:30px 28px}
+.fields{display:grid;grid-template-columns:1fr;gap:18px}
+.field.full{grid-column:auto}
+.form-desc{margin:0 0 25px}
+.form-title{font-size:clamp(27px,5vw,39px)}
+.submit{margin-top:26px}
+.success{min-height:390px}
+.success h2{font-size:clamp(29px,5vw,43px)}
+.success p{margin-top:5px}
+@media(max-width:760px){.form-card{padding:22px 17px}.fields{gap:15px}.success{min-height:370px}}
 </style>
 </head>
 <body>
@@ -133,37 +146,31 @@ linear-gradient(180deg,#081226 0%,#0b2353 45%,#08162d 100%)}
       <div class="inner-border"></div>
       <div id="formPage">
         <div class="form-top">
-          <span class="form-kicker">🎁 OMAD SHOU · Sovg‘ani qabul qilish</span>
+          <span class="form-kicker">🎁 SOVG‘ANI QABUL QILISH</span>
         </div>
-        <h2 class="form-title" id="form-title">Sovg‘ani <em>qabul qilish</em></h2>
-        <p class="form-desc">Sovg‘ani qabul qilish shaklini to‘ldiring. Ism, familiya va yetkazib berish manzilini kiriting. Telefon raqami talab qilinmaydi.</p>
-
+        <h2 class="form-title" id="form-title">Sovg‘a uchun <em>ma’lumotlar</em></h2>
+        <p class="form-desc">Ism-familiyangiz va to‘liq yetkazib berish manzilini kiriting.</p>
         <form id="giftForm" novalidate>
-          <div class="section-label">01 / Shaxsiy ma’lumotlar</div>
           <div class="fields">
-            <div class="field"><label for="firstName">Ismingiz <span>*</span></label><input id="firstName" name="firstName" type="text" autocomplete="given-name" maxlength="70" placeholder="Ismingiz" required></div>
-            <div class="field"><label for="lastName">Familiyangiz <span>*</span></label><input id="lastName" name="lastName" type="text" autocomplete="family-name" maxlength="70" placeholder="Familiyangiz" required></div>
+            <div class="field full">
+              <label for="fullName">Ism va familiya <span>*</span></label>
+              <input id="fullName" name="fullName" type="text" autocomplete="name" maxlength="140" placeholder="Ism va familiyangiz" required>
+            </div>
+            <div class="field full">
+              <label for="address">To‘liq manzil <span>*</span></label>
+              <input id="address" name="address" type="text" autocomplete="street-address" maxlength="250" placeholder="Viloyat, shahar, ko‘cha, uy" required>
+            </div>
           </div>
-
-          <div class="section-label">02 / Yetkazib berish manzili</div>
-          <div class="fields">
-            <div class="field"><label for="region">Viloyat <span>*</span></label><select name="region" id="region" required><option value="">Viloyatni tanlang</option><option>Toshkent shahri</option><option>Toshkent viloyati</option><option>Andijon viloyati</option><option>Buxoro viloyati</option><option>Farg‘ona viloyati</option><option>Jizzax viloyati</option><option>Namangan viloyati</option><option>Navoiy viloyati</option><option>Qashqadaryo viloyati</option><option>Qoraqalpog‘iston Respublikasi</option><option>Samarqand viloyati</option><option>Sirdaryo viloyati</option><option>Surxondaryo viloyati</option><option>Xorazm viloyati</option></select></div>
-            <div class="field"><label for="city">Shahar yoki tuman <span>*</span></label><input name="city" id="city" type="text" maxlength="90" autocomplete="address-level2" placeholder="Shahar / tuman" required></div>
-            <div class="field full"><label for="address">Ko‘cha, uy va xonadon <span>*</span></label><input name="address" id="address" type="text" maxlength="170" autocomplete="street-address" placeholder="Masalan: Mustaqillik ko‘chasi, 12-uy, 4-xonadon" required><span class="field-note">Manzil va ism-familiya shaxsiy ma’lumot hisoblanadi. Telefon raqami so‘ralmaydi.</span></div>
-            <div class="field full"><label for="postal">Pochta indeksi (ixtiyoriy)</label><input name="postal" id="postal" type="text" inputmode="numeric" pattern="[0-9]{5,7}" maxlength="7" autocomplete="postal-code" placeholder="Masalan: 100000"></div>
-          </div>
-
-          <button class="submit" type="submit">🎁 MA’LUMOTLARNI YUBORISH <span aria-hidden="true">➜</span></button>
-          <p class="privacy"><strong>Ma’lumotlaringiz xavfsizligi:</strong> bu tayyor namuna sahifa. Server ulanmaguncha kiritilgan ma’lumotlar hech qayerga yuborilmaydi va saqlanmaydi.</p>
+          <button class="submit" type="submit">DAVOM ETISH <span aria-hidden="true">➜</span></button>
+          <p class="privacy">Ma’lumotlar serverga yuborilmaydi. Hozircha bu shakl faqat ko‘rish uchun.</p>
         </form>
       </div>
 
       <div class="success" id="successPage" aria-live="polite" role="status">
-        <span class="success-ribbon">Omad Shou</span>
+        <span class="success-ribbon">OMAD SHOU</span>
         <div class="arrow-ring" aria-hidden="true"><svg viewBox="0 0 110 110" fill="none"><path d="M23 78L84 26M44 26h40v40" stroke="#fff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 78L84 26M44 26h40v40" stroke="#dcffe7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h2>Muvaffaqiyatli yuborildi!</h2>
-        <p>Shakl to‘ldirildi. Sovg‘ani rasmiylashtirish uchun yuborish xizmati hali ulanmagan.</p>
-        <div class="success-box"><strong>Namuna ko‘rinishi.</strong><br>Haqiqiy ariza serverga yuborilmadi va hech qanday yetkazib berish tasdiqlanmadi.</div>
+        <h2>Ma’lumotlar to‘ldirildi!</h2>
+        <p>Shakl tayyor.</p>
       </div>
     </section>
   </main>
@@ -180,14 +187,11 @@ const form=document.getElementById('giftForm');
 form.addEventListener('submit',e=>{
   e.preventDefault();
   if(!form.checkValidity()){form.reportValidity();return;}
-  const postal=document.getElementById('postal');
-  if(postal.value.trim() && !/^[0-9]{5,7}$/.test(postal.value.trim())){postal.setCustomValidity('Pochta indeksini tekshiring.');postal.reportValidity();return;}
   document.getElementById('formPage').hidden=true;
   document.getElementById('successPage').classList.add('is-visible');
   window.scrollTo({top:0,behavior:'smooth'});
   form.reset();
 });
-document.getElementById('postal').addEventListener('input',e=>e.target.setCustomValidity(''));
 </script>
 </body>
 </html>
