@@ -58,6 +58,101 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 @media(max-width:760px){.page{padding:14px 12px 28px}.header{margin-bottom:6px}.form-card{padding:22px 17px}.fields{gap:15px}.success{min-height:370px}.welcome{min-height:360px;padding:10px 4px}.welcome-icon{width:98px;height:98px;font-size:65px;margin:22px 0 16px}.welcome-next{min-height:58px}}
 @media(max-width:430px){.page{padding:10px 12px 28px}.form-card{padding:24px 17px}.logo-wrap{width:100%}.form-title{font-size:clamp(27px,6vw,37px)}.field input{height:48px}.success h2{font-size:31px}.success p{font-size:16px}.arrow-ring{width:146px;height:146px}.arrow-ring svg{width:82px;height:82px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Omad Shou: festive form styling matched to the live site's header and winter background. */
+.form-card{
+  isolation:isolate;
+  border:2px solid rgba(249,204,101,.78);
+  background:
+    radial-gradient(ellipse at 84% 0%,rgba(77,143,226,.22),transparent 42%),
+    linear-gradient(164deg,#183969 0%,#102c5b 38%,#0a2047 76%,#081936 100%);
+  box-shadow:0 18px 46px rgba(0,8,35,.41),inset 0 0 0 1px rgba(255,240,189,.075);
+}
+.form-card::before{
+  content:"";position:absolute;inset:9px;z-index:-1;border:1px solid rgba(255,221,153,.16);
+  border-radius:21px;pointer-events:none;
+}
+.form-card::after{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  width:280px;height:160px;right:-135px;top:-100px;transform:rotate(-22deg);
+  background:radial-gradient(ellipse,rgba(255,201,94,.15),transparent 70%);
+}
+.card .inner-border{display:none}
+.form-top{margin-bottom:13px}
+.form-kicker{
+  display:inline-flex;align-items:center;gap:5px;
+  width:max-content;max-width:100%;
+  padding:7px 11px;border-radius:999px;
+  color:#ffe7a5;font-weight:900;font-size:10px;letter-spacing:.12em;
+  background:linear-gradient(180deg,rgba(9,30,69,.88),rgba(12,38,80,.68));
+  border:1px solid rgba(248,195,80,.52);
+  box-shadow:0 2px 12px rgba(0,7,27,.22),inset 0 1px rgba(255,255,255,.09);
+}
+.form-title{
+  font-size:clamp(27px,5vw,38px);line-height:1.12;letter-spacing:-.04em;
+  font-weight:900;color:#fff4db;text-shadow:0 2px 8px rgba(0,0,0,.15);
+  margin:7px 0 8px;
+}
+.form-title em{
+  color:#ffdc85;
+  background:linear-gradient(180deg,#fff0b5,#ffd171 75%,#eaae4c);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.form-desc{color:#c6dbf4;margin:0 0 24px;font-size:13px;line-height:1.55}
+.fields{gap:19px}
+.field{gap:8px}
+.field label{font-size:13px;font-weight:800;color:#f8f6f1}
+.field label span{color:#ffe08c}
+.field input{
+  height:54px;border-radius:15px;border:1px solid rgba(173,199,238,.45);
+  background:linear-gradient(180deg,rgba(7,26,62,.92),rgba(7,25,58,.95));
+  box-shadow:inset 0 2px 5px rgba(0,6,26,.23);
+  color:#fffaf0;padding:0 16px;
+  transition:border-color .16s,box-shadow .16s,background .16s;
+}
+.field input::placeholder{color:#8da7c9}
+.field input:hover{border-color:rgba(255,222,153,.66)}
+.field input:focus{
+  border-color:#ffdb82;
+  box-shadow:0 0 0 2px rgba(255,212,109,.18),inset 0 1px 4px rgba(0,0,0,.26),0 0 15px rgba(255,197,75,.14);
+}
+.submit{
+  position:relative;isolation:isolate;overflow:hidden;
+  min-height:62px;border-radius:17px;margin-top:28px;
+  border:1px solid #ffe6a0;
+  background:linear-gradient(180deg,#fff5c8 0%,#ffe58c 30%,#f6ca5d 62%,#e6a630 100%);
+  color:#63350c;font-size:18px;font-weight:950;letter-spacing:.02em;
+  text-shadow:0 1px rgba(255,255,255,.54);
+  box-shadow:0 5px 0 #a26a1e,0 13px 23px rgba(0,0,0,.21),inset 0 1px 0 rgba(255,255,255,.82);
+}
+.submit::before{
+  content:"";position:absolute;left:2%;right:2%;top:2px;height:44%;
+  border-radius:15px 15px 45% 45%;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,0));
+  z-index:-1;
+}
+.submit:hover{filter:brightness(1.04);transform:translateY(-2px)}
+.submit:active{transform:translateY(3px);box-shadow:0 2px 0 #a26a1e,0 7px 15px rgba(0,0,0,.19)}
+.welcome-icon{box-shadow:0 0 0 11px #48dd9517,0 10px 30px #031d2999,0 0 29px #5af1a14d}
+@media(max-width:760px){
+ .form-card{padding:23px 19px}
+ .form-kicker{font-size:10px}
+ .form-title{font-size:clamp(28px,6.4vw,35px)}
+ .form-desc{margin-bottom:21px}
+ .field input{height:52px}
+ .submit{min-height:60px}
+}
+@media(max-width:430px){
+ .form-card{padding:24px 17px}
+ .form-card::before{inset:7px;border-radius:22px}
+ .form-title{font-size:clamp(26px,6.2vw,32px)}
+ .form-desc{font-size:12px}
+ .fields{gap:17px}
+ .field label{font-size:12px}
+ .field input{height:50px;font-size:14px}
+ .submit{font-size:17px;min-height:58px}
+}
+
 </style>
 </head>
 <body>
