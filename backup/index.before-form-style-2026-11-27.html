@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a1f4b">
+<meta name="description" content="Omad Shou uslubidagi sovg‘a rasmiylashtirish sahifasi.">
+<title>OMAD SHOU — Sovg‘ani rasmiylashtirish</title>
+<link rel="preconnect" href="https://wsrv.nl" crossorigin>
+<style>
+:root{--gold1:#fff1b1;--gold2:#ffd25d;--gold3:#f0a127;--white:#fffdf7;--muted:#bcd7ee;--line:rgba(255,255,255,.14);--shadow:0 20px 44px rgba(0,0,0,.34)}
+*{box-sizing:border-box}
+html,body{min-height:100%;margin:0}
+html{background:#071a3d}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--white);overflow-x:hidden;isolation:isolate;background:#071a3d}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background-image:url("https://wsrv.nl/?url=raw.githubusercontent.com/sdasdadasdsa/gifts/main/assets/new-year-background.png&w=1440&q=72&output=webp");background-size:cover;background-position:center top;background-repeat:no-repeat}
+/* Make the original illustration the only backdrop: no duplicated CSS garlands, artificial snow or radial stage effects. */
+button,input,select{font:inherit}button{cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #ffe08e;outline-offset:3px}
+.page{position:relative;max-width:580px;margin:0 auto;padding:16px 18px 40px;z-index:2}
+.header{display:flex;justify-content:center;align-items:center;margin:0 0 14px}
+.logo-wrap{text-align:center;width:min(100%,530px)}
+.logo-image{display:block;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 12px 15px rgba(0,0,0,.32))}
+.main{display:block}
+.card{position:relative;border-radius:30px;box-shadow:var(--shadow);overflow:hidden}
+.form-card{width:100%;padding:30px 28px;border:2px solid rgba(255,224,138,.67);background:radial-gradient(circle at 95% -10%,rgba(59,120,210,.35),transparent 35%),linear-gradient(160deg,#15356f,#0b224c 72%,#091936)}
+.card .inner-border{position:absolute;inset:8px;border-radius:22px;border:1px solid rgba(255,234,165,.14);pointer-events:none}
+.form-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.form-kicker{font-size:11px;font-weight:1000;letter-spacing:.17em;text-transform:uppercase;color:#ffe8a3}
+.form-title{margin:15px 0 7px;font-size:clamp(27px,5vw,39px);line-height:1.08;letter-spacing:-.04em;color:#fff7da}
+.form-title em{font-style:normal;color:#ffe29d}
+.form-desc{margin:0 0 25px;color:#c2dcf2;font-size:14px;line-height:1.6}
+.fields{display:grid;grid-template-columns:1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:auto}
+.field label{font-size:12px;font-weight:800;color:#eaf6ff}.field label span{color:#ffd883}
+.field input{width:100%;height:50px;border-radius:14px;border:1px solid rgba(158,191,244,.45);background:rgba(7,25,59,.72);color:#fff;padding:0 14px;font-size:14px;box-shadow:inset 0 1px 2px rgba(0,0,0,.35);outline:none;transition:border-color .15s,box-shadow .15s;appearance:none}
+.field input::placeholder{color:#8da9d1}
+.field input:focus{border-color:#f3d274;box-shadow:0 0 0 3px rgba(243,211,117,.14)}
+.submit{display:flex;justify-content:center;align-items:center;gap:10px;width:100%;min-height:60px;margin-top:26px;border:0;border-radius:16px;background:linear-gradient(180deg,#fff4bb,#f7d368 52%,#dd9a2c);box-shadow:0 5px 0 #9f6015,0 14px 24px rgba(0,0,0,.26);color:#542c09;font-size:18px;font-weight:1000;letter-spacing:.04em;text-transform:uppercase;text-shadow:0 1px rgba(255,255,255,.7);transition:transform .16s,filter .16s}
+.submit:hover{transform:translateY(-2px);filter:brightness(1.05)}.submit:active{transform:translateY(3px);box-shadow:0 2px 0 #9f6015,0 8px 16px rgba(0,0,0,.24)}
+.privacy{margin:16px 2px 0;color:#96b9de;font-size:11px;line-height:1.6;text-align:center}
+.success{display:none;min-height:390px;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px 6px}
+.success.is-visible{display:flex;animation:showup .55s ease both}
+@keyframes showup{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+.success-ribbon{display:inline-block;padding:8px 15px;border-radius:999px;background:linear-gradient(180deg,#ff7184,#d11345);box-shadow:0 4px 0 #8b0d2a;color:#fff6d5;font-size:11px;font-weight:1000;letter-spacing:.14em;text-transform:uppercase}
+.arrow-ring{position:relative;width:186px;height:186px;border-radius:50%;display:grid;place-items:center;margin:28px 0 22px;background:radial-gradient(circle at 35% 24%,#53ffa7,#09b568 76%);border:4px solid #b9ffd2;box-shadow:0 0 0 14px rgba(69,233,151,.12),0 0 0 30px rgba(69,233,151,.06),0 18px 40px rgba(7,29,43,.5),0 0 44px rgba(72,239,154,.44);animation:pop .65s cubic-bezier(.15,1.4,.3,1) both}
+@keyframes pop{from{transform:scale(.45) rotate(-20deg);opacity:0}to{transform:scale(1);opacity:1}}
+.arrow-ring svg{width:108px;height:108px;filter:drop-shadow(0 4px 5px rgba(0,113,65,.5))}
+.success h2{max-width:520px;font-size:clamp(29px,5vw,43px);line-height:1.08;color:#fbfff0;margin:13px 0 8px;letter-spacing:-.04em}
+.success p{font-size:clamp(17px,2vw,21px);color:#d6fbe8;max-width:420px;line-height:1.6;margin:5px 0 18px}
+.footer{text-align:center;color:rgba(193,216,239,.86);font-size:11px;line-height:1.6;margin-top:18px;text-shadow:0 1px 5px #00152f}
+#welcomePage[hidden],#formPage[hidden]{display:none!important}
+.welcome{display:flex;min-height:425px;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px 6px;animation:showup .4s ease both}
+.welcome-icon{display:grid;place-items:center;width:112px;height:112px;margin:28px 0 15px;border-radius:50%;border:4px solid #ffeea9;background:radial-gradient(circle at 33% 22%,#6cffb4,#06a963 78%);color:white;font-size:76px;font-weight:900;line-height:1;box-shadow:0 0 0 11px #48dd9517,0 10px 30px #031d2999,0 0 29px #5af1a14d}
+.welcome h2{font-size:clamp(31px,7vw,43px);margin:4px 0 12px;line-height:1.1;color:#fff1b5;text-shadow:0 2px 0 #92511d}
+.welcome p{font-size:clamp(15px,3.8vw,18px);line-height:1.55;max-width:390px;margin:0 0 16px;color:#e2f2ff}
+.welcome-next{width:min(100%,370px);margin-top:18px}
+@media(max-width:760px){.page{padding:14px 12px 28px}.header{margin-bottom:6px}.form-card{padding:22px 17px}.fields{gap:15px}.success{min-height:370px}.welcome{min-height:360px;padding:10px 4px}.welcome-icon{width:98px;height:98px;font-size:65px;margin:22px 0 16px}.welcome-next{min-height:58px}}
+@media(max-width:430px){.page{padding:10px 12px 28px}.form-card{padding:24px 17px}.logo-wrap{width:100%}.form-title{font-size:clamp(27px,6vw,37px)}.field input{height:48px}.success h2{font-size:31px}.success p{font-size:16px}.arrow-ring{width:146px;height:146px}.arrow-ring svg{width:82px;height:82px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <div class="logo-wrap">
+      <img class="logo-image" src="https://wsrv.nl/?url=raw.githubusercontent.com/sdasdadasdsa/gifts/main/assets/omad-shou-header.png&w=1260&q=80&output=webp" fetchpriority="high" decoding="async" onerror="this.onerror=null;this.src='assets/omad-shou-header.png'" alt="OMAD SHOU — YANGI YIL SOVG‘ALARI" width="2048" height="682">
+    </div>
+  </header>
+  <main class="main">
+    <section class="card form-card" aria-labelledby="form-title">
+      <div class="inner-border"></div>
+      <div class="welcome" id="welcomePage" aria-labelledby="welcomeTitle">
+        <span class="success-ribbon">🎁 OMAD SHOU</span>
+        <div class="welcome-icon" aria-hidden="true">✓</div>
+        <h2 id="welcomeTitle">Xush kelibsiz!</h2>
+        <p>Sovg‘ani olish uchun ism-familiyangiz va yetkazib berish manzilingizni ko‘rsatish qoldi.</p>
+        <button type="button" class="submit welcome-next" id="continueBtn">DAVOM ETISH <span aria-hidden="true">➜</span></button>
+      </div>
+      <div id="formPage" hidden>
+        <div class="form-top"><span class="form-kicker">🎁 SOVG‘ANI QABUL QILISH</span></div>
+        <h2 class="form-title" id="form-title">Sovg‘a uchun <em>ma’lumotlar</em></h2>
+        <p class="form-desc">Ism-familiyangiz va to‘liq yetkazib berish manzilini kiriting.</p>
+        <form id="giftForm" novalidate>
+          <div class="fields">
+            <div class="field full"><label for="fullName">Ism va familiya <span>*</span></label><input id="fullName" name="fullName" type="text" autocomplete="name" maxlength="140" placeholder="Ism va familiyangiz" required></div>
+            <div class="field full"><label for="address">To‘liq manzil <span>*</span></label><input id="address" name="address" type="text" autocomplete="street-address" maxlength="250" placeholder="Viloyat, shahar, ko‘cha, uy" required></div>
+          </div>
+          <button class="submit" type="submit">DAVOM ETISH <span aria-hidden="true">➜</span></button>
+        </form>
+      </div>
+      <div class="success" id="successPage" aria-live="polite" role="status">
+        <span class="success-ribbon">OMAD SHOU</span>
+        <div class="arrow-ring" aria-hidden="true"><svg viewBox="0 0 110 110" fill="none"><path d="M23 78L84 26M44 26h40v40" stroke="#fff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 78L84 26M44 26h40v40" stroke="#dcffe7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h2>Ma’lumotlar to‘ldirildi!</h2>
+        <p>Shakl tayyor.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">OMAD SHOU · Sovg‘ani qabul qilish shakli</footer>
+</div>
+<script>
+'use strict';
+const welcomePage=document.getElementById('welcomePage');
+const formPage=document.getElementById('formPage');
+document.getElementById('continueBtn').addEventListener('click',()=>{
+  welcomePage.hidden=true;
+  formPage.hidden=false;
+  document.getElementById('fullName').focus({preventScroll:true});
+});
+const form=document.getElementById('giftForm');
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!form.checkValidity()){form.reportValidity();return;}
+  document.getElementById('formPage').hidden=true;
+  document.getElementById('successPage').classList.add('is-visible');
+  window.scrollTo({top:0,behavior:'smooth'});
+  form.reset();
+});
+</script>
+</body>
+</html>
